@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Social Event</string>
+    <string name="action_today">Today</string>
+    <string name="action_day_view">Day view</string>
+    <string name="action_three_day_view">3 day view</string>
+    <string name="action_week_view">Calendar view</string>
+    <string name="title_activity_basic">Basic Example</string>
+    <string name="title_activity_asynchronous">Asynchronous Events</string>
+    <string name="async_error">Could not download events from the internet</string>
+    <string name="action_list_view">List All</string>
+    <string name="action_add">Add</string>
+    <string name="back">Back</string>
+    <string name="done">Done</string>
+    <string name="event_name">Event Name</string>
+    <string name="location">Location</string>
+    <string name="start_date">Start Date</string>
+    <string name="start_time">Start Time</string>
+    <string name="to">To</string>
+    <string name="end_date">End Date</string>
+    <string name="end_time">End Time</string>
+    <string name="description">Description</string>
+    <string name="attendees">Attendees</string>
+    <string name="note">Note</string>
+    <string name="from">From</string>
+    <string name="time">Time</string>
+    <string name="warning_fill_title">Please, Fill Title!!!</string>
+    <string name="warning_fill_start_date_time">Please, Fill Start Date and Time!!!</string>
+    <string name="warning_fill_end_date_time">Please, Fill End Date and Time!!!</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="time_estimated">Time Estimated</string>
+    <string name="start_time_hr_min">0 hr 0 min</string>
+    <string name="delete">DELETE</string>
+</resources>

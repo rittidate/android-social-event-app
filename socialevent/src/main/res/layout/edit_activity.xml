@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:id="@+id/button_row"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="@string/back"
+                    android:onClick="actionBackView"
+                    android:id="@+id/cancel_button" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="@string/done"
+                    android:onClick="actionSaveView"
+                    android:id="@+id/ok_button" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/name_row"
+                android:layout_below="@id/button_row"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="@dimen/text_width"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/label_text_size"
+                    android:text="@string/event_name"
+                    android:id="@+id/title_label" />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/event_name"
+                    android:id="@+id/title_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/location_row"
+                android:layout_below="@+id/name_row"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="@dimen/text_width"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/label_text_size"
+                    android:text="@string/location"
+                    android:id="@+id/location_label" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/location"
+                    android:id="@+id/location_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/location_ext_row"
+                android:layout_below="@+id/location_row"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <!--hidden location info-->
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".30"
+                    android:id="@+id/location_address_hidden"
+
+                />
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".30"
+                    android:id="@+id/location_lat_hidden"
+                    />
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".30"
+                    android:id="@+id/location_long_hidden"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/location_time_estimated_row"
+                android:layout_below="@id/location_ext_row"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom">
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".30"
+                    android:text="@string/time_estimated"
+                    android:id="@+id/location_time_estimated_label"/>
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".70"
+                    android:textAlignment="center"
+                    android:id="@+id/location_time_estimated"
+                    android:text="@string/start_time_hr_min" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/google_map_height"
+                android:id="@+id/google_map_row"
+                android:layout_below="@id/location_time_estimated_row"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/from_row"
+                android:layout_below="@+id/google_map_row"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom">
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="@string/from"
+                    android:id="@+id/from_label"/>
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="@string/time" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/start_row"
+                android:layout_below="@+id/from_row"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:hint="@string/start_date"
+                    android:id="@+id/start_date_text" />
+
+                <EditText
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/start_time"
+                    android:layout_weight=".50"
+                    android:id="@+id/start_time_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/to_row"
+                android:layout_below="@+id/start_row"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom">
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="@string/to"
+                    android:id="@+id/to_label" />
+
+                <TextView
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="@string/time" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/end_row"
+                android:layout_below="@+id/to_row"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:hint="@string/end_date"
+                    android:id="@+id/end_date_text" />
+
+                <EditText
+                    android:layout_width="@dimen/reset_width"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/end_time"
+                    android:layout_weight=".50"
+                    android:id="@+id/end_time_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:id="@+id/description_row"
+                android:layout_below="@+id/end_row"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/description"
+                    android:id="@+id/description_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:id="@+id/attendee_row"
+                android:layout_below="@+id/description_row"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/attendees"
+                    android:id="@+id/attendee_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:id="@+id/note_row"
+                android:layout_below="@+id/attendee_row"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/note"
+                    android:id="@+id/note_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:id="@+id/delete_row"
+                android:layout_below="@+id/note_row"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:text="@string/delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/note_row"
+                    android:layout_weight="1"
+                    android:id="@+id/delete_button"
+                    android:textSize="@dimen/delete_button_text"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/caldroid_light_red"
+                    android:onClick="actionDeleteEvent"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent = "true"
+        android:gravity = "center"
+        android:id="@+id/progressBar" />
+
+</RelativeLayout>
